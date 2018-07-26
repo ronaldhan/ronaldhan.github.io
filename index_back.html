@@ -27,268 +27,43 @@
 <li>熟练使用Python下数据分析系列工具，包括Numpy/Matplotlib/Pandas</li>
 </ul>
 <h4><a id="_25"></a><strong>项目经历</strong></h4>
-<div class="md-section-divider"></div>
-<h3 data-anchor-id="kyl0" id="算法模型">算法模型</h3>
-<table data-anchor-id="tehe" class="table table-striped-white table-bordered">
-    <tbody>
-    <tr>
-        <th>时间</th>
-        <th>地点</th>
-        <th>项目</th>
-        <th>内容</th>
-        <th>效果</th>
-    </tr>
-    <tr>
-        <td>2018.7</td>
-        <td>快手</td>
-        <td>用户画像-快手用户年龄识别和未成年人识别</td>
-        <td>
-        <b>目标</b>：需要构建模型来对全量用户的年龄段进行识别，并进一步区分出未成年人。<br>
-        1. 通过多交叉验证的方式构建标注数据集；<br>
-        2. 使用多种模型，包括RM、RM+PCA、XGBoost等对数据构建多分类模型，寻找最优模型；
-        </td>
-        <td>通过对数据集的增强处理和模型调优，当前模型相比上一个在线模型的准确度提高2个百分点</td>
-    </tr>
-    <tr>
-        <td>2018.1</td>
-        <td>快手</td>
-        <td>lookalike定向投放模型</td>
-        <td>
-        <b>目标</b>：给定少量种子用户，利用模型对用户群体进行指定数量的扩展<br>
-        1. 针对游戏用户，生成合适的负例，构造训练数据集；<br>
-        2. 使用GBDT(spark)对数据构建回归模型，预测目标用户与种子用户的相似度；<br>
-        3. 基于spark实现高效的Top K选择方案，输出预测结果；
-        </td>
-        <td>构建了游戏种子用户投放的流水线，成为游戏投放的初始投放模型</td>
-    </tr>
-    <tr>
-        <td>2017.1</td>
-        <td>美团</td>
-        <td>外卖推荐-用户偏好挖掘</td>
-        <td>
-        <b>目标</b>：预测用户在未来一周内，对于特定商品品类的下单概率<br>
-        1. 提出负例构造方法，解决品类数据中类别相对不平衡问题，训练数据集构造；<br>
-        2. 使用多种模型，包括RM(spark)、GBDT(spark)对数据构建回归模型，寻找表现较好且效率较优模型；
-        </td>
-        <td>通过对模型调优，最终模型相比上一个在线模型的AUC提高1个百分点，且能够在4个小时内完成全部的训练和预测过程</td>
-    </tr>
-</tbody>
-</table>
-
-<div class="md-section-divider"></div>
-<h3 data-anchor-id="lmaf" id="数据挖掘">数据挖掘</h3>
-<table data-anchor-id="jk1n" class="table table-striped-white table-bordered">
-  <tbody>
-    <tr>
-        <th>时间</th>
-        <th>地点</th>
-        <th>项目</th>
-        <th>内容</th>
-        <th>效果</th>
-    </tr>
-    <tr>
-        <td>2018.4</td>
-        <td>快手</td>
-        <td>用户画像-LBS信息挖掘</td>
-        <td>
-        <b>目标</b>：找到用户的工作地和居住地，识别用户场景；找到用户的家乡所在地<br>
-        1. 对用户GPS数据和IP数据的融合处理，构建网格化的地理位置类别信息库，将用户行为与地理网格建立映射关系；<br>
-        2. 构建用户对地理网格的排序模型，生成用户工作地和居住地；<br>
-        3. 构建用户家乡数据排序模型，构建大规模验证数据集(2000万)进行数据验证；<br>
-        </td>
-        <td>
-        1. 通过融合数据和排序模型，用户工作地和居住地结果网格精度达到20米左右，在小样本数据集上验证达到较高准确度；<br>
-        2. 家乡数据的验证准确度在省份级别达到92%；<br>
-        </td>
-    </tr>
-    <tr>
-        <td>2017.9</td>
-        <td>快手</td>
-        <td>设备画像-设备指纹生成</td>
-        <td>
-        <b>目标</b>：构建设备指纹生成模型，为所有设备生成新的自定义指纹<br>
-        1. 分析设备多个属性的重要性和区分度，构建初始的聚类数据(千类量级)；<br>
-        2. 基于spark实现备选设备(十亿规模)与初步聚类数据的相似度排序模型，实现备选设备指纹生成；<br>
-        </td>
-        <td>
-        将公司内部新增设备指标相比业务常用指标的误差降低了30%，并且保持稳定；<br>
-        </td>
-    </tr>
-    <tr>
-        <td>2016.8</td>
-        <td>美团</td>
-        <td>外卖推荐-商户敏感度挖掘</td>
-        <td>
-        <b>目标</b>：衡量商户对于补贴的敏感度，改进商户补贴策略<br>
-        1. 设计“商户-用户关系的tf-idf模型”计算商户敏感度，实现对商户敏感度的定量衡量；<br>
-        2. 设计AB测试方案对商户敏感度进行测试，实验结果分析；<br>
-        </td>
-        <td>
-        小范围测试中，基于商户敏感度的补贴方案下，同样补贴提升核心交易指标(GMV和uv等)约8%；<br>
-        </td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="md-section-divider"></div>
-<h3 data-anchor-id="s83n" id="数据开发">数据开发</h3>
-<table data-anchor-id="aptc" class="table table-striped-white table-bordered">
-  <tbody>
-    <tr>
-        <th rowspan="4">离线计算</th>
-        <th>时间</th>
-        <th>地点</th>
-        <th>项目</th>
-        <th>内容</th>
-        <th>效果</th>
-    </tr>
-    <tr>
-        <td>2017.4</td>
-        <td>快手</td>
-        <td>用户画像-用户主题数据</td>
-        <td>
-        <b>目标</b>：构建公司级统一的用户画像主题数据<br>
-        1. 完成十几个主题用户画像数据离线表的开发；<br>
-        2. 实现离线数据再多种存储间的同步(hive\hbase\es)，构建用户画像多维分析系统；<br>
-        3. 搭建用户画像站点服务，提供一站式用户画像查询服务；
-        </td>
-        <td>
-        形成了公司级别统一的用户画像体系；<br>
-        </td>
-    </tr>
-    <tr>
-        <td>2016.6</td>
-        <td>美团</td>
-        <td>文本处理-菜品标签开发</td>
-        <td>
-        <b>目标</b>：构建外卖菜品的标签体系<br>
-        1. 使用多种方式从菜品名称文本中挖掘标签；
-        2. 融合多个业务方生产标签，标签自动生成和冲突处理；<br>
-        </td>
-        <td>
-        文本挖掘和知识图谱基础建设；<br>
-        </td>
-    </tr>
-    <tr>
-        <td>2016.4</td>
-        <td>美团</td>
-        <td>文本处理-菜品名称归一化</td>
-        <td>
-        <b>目标</b>：实现菜品名称在语义上的归一化<br>
-        1. 设计清洗规则，完成外部网站抓取文本数据清洗和外卖全量菜品清洗；<br>
-        2. 设计算法实现菜品名称在语义上的归一化；<br>
-        3. 外卖菜品套餐识别和用餐人数识别；
-        </td>
-        <td>
-        形成了公司级别统一的用户画像体系；<br>
-        </td>
-    </tr>
-    <tr>
-        <th rowspan="3">实时计算</th>
-        <th>时间</th>
-        <th>地点</th>
-        <th>项目</th>
-        <th>内容</th>
-        <th>效果</th>
-    </tr>
-    <tr>
-        <td>2018.1</td>
-        <td>快手</td>
-        <td>设备画像-设备活跃画像</td>
-        <td>
-        <b>目标</b>：描述设备的实时活跃信息<br>
-        1. 基于Flink完成设备活跃信息的处理；<br>
-        2. 构建离线同步+实时更新的设备活跃数据，对外提供了设备活跃数据的服务化接口；<br>；
-        </td>
-        <td>
-        设备服务化接口成为公司新设备投放的重要jue ce信息来源；<br>
-        </td>
-    </tr>
-    <tr>
-        <td>2017.12</td>
-        <td>快手</td>
-        <td>用户画像-实时画像</td>
-        <td>
-        <b>目标</b>：构建用户的实时行为画像<br>
-        1. 基于Flink完成用户实时登陆行为的处理；<br>
-        2. 构建离线同步+实时更新的用户登陆行为数据，实现用户登陆行为的实时查询；<br>；
-        </td>
-        <td>
-        提供了用户实时行为查询平台；<br>
-        </td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="md-section-divider"></div>
-<h3 data-anchor-id="jnm6" id="系统开发">系统开发</h3>
-<table data-anchor-id="qkf9" class="table table-striped-white table-bordered">
-    <tbody><tr>
-        <th>时间</th>
-        <th>地点</th>
-        <th>项目</th>
-        <th>内容</th>
-        <th>效果</th>
-    </tr>
-    <tr>
-        <td>2017.10</td>
-        <td>快手</td>
-        <td>用户画像-服务化接口</td>
-        <td>
-        <b>目标</b>：构建用户画像的服务化接口，提供数据服务<br>
-        1. 基于Spring Boot和Grpc框架实现常用用户画像离线数据和实时数据的服务化接口；<br>
-        </td>
-        <td>
-        提供了用户画像数据服务化接口；<br>
-        </td>
-    </tr>
-    <tr>
-        <td>2017.8</td>
-        <td>快手</td>
-        <td>UDF统一平台</td>
-        <td>
-        <b>目标</b>：构建统一的UDF开发平台<br>
-        1. 创建公司统一的UDF开发平台，编写UDF开发指南，规范公司级别UDF开发和使用的流程；<br>
-        2. 常见地理相关UDF开发和统计UDF开发
-        </td>
-        <td>
-        实现了UDF开发的统一管理和发布，提供常用的UDF工具；<br>
-        </td>
-    </tr>
-</tbody></table><div class="md-section-divider"></div><h3 data-anchor-id="2693" id="自主学习">自主学习</h3><table data-anchor-id="t73q" class="table table-striped-white table-bordered">
-  <tbody>
-    <tr>
-        <th>时间</th>
-        <th>地点</th>
-        <th>项目</th>
-        <th>内容</th>
-        <th>效果</th>
-    </tr>
-    <tr>
-        <td>2018.3</td>
-        <td>快手</td>
-        <td>深度学习课程</td>
-        <td>
-        <b>目标</b>：深度学习知识学习<br>
-        1. 基本完成<b>cs231n</b>课程学习，对常见的CNN和RNN模型有初步的了解；<br>
-        </td>
-        <td>
-        在lookalike项目中，尝试使用AutoEncode的方式进行Embedding；<br>
-        </td>
-    </tr>
-    <tr>
-        <td>2016.1</td>
-        <td>美团</td>
-        <td>Edx公开课项目BerkeleyX</td>
-        <td>
-        <b>目标</b>：利用Spark进行数据挖掘和机器学习<br>
-        1. 加州大学伯克利分校大数据分析培训项目，利用Spark完成一系列大数据分析任务。包括：Apark CLF网站日志分析，基于Google和Amazon商品描述数据的文本解析和实体解析，基于协同分析进行电影推荐系统，线性回归预测，Criteo广告数据点击率预测和降维算法PCA实现；<a href="http://ronaldhan.github.io/SparkLearn/" target="_blank">项目地址</a><br>
-        </td>
-        <td>
-        机器学习基础算法的学习和Spark的使用；<br>
-        </td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+<li><p><strong>用户画像项目</strong>：梳理公司不同团队的用户画像数据，整理出统一逻辑框架的用户画像需求；设计用户画像数据仓库的存储模型和分层规范，完成十几个用户画像主题数据开发；用户画像数据服务化方案设计和接口开发；用户画像站点服务系统开发以及多维分析系统开发；构建实时用户画像指标系统；领导用户画像小组用户标签体系开发。 <br>
+<strong>项目评价</strong>：整合了公司内部不同口径的用户画像数据，形成公司级别统一的用户画像数据模型和服务接口，搭建了用户画像站点和多维分析平台，为公司多个业务(推荐，广告，运营和用户增长等)提供支持。</p></li>
+<li><p><strong>LBS数据挖掘项目</strong>：逆地理编码数据库的方案设计和实现，包括用户登陆日志的清洗、逆地理编码数据挖掘和数据更新算法设计，逆地理编码结果准确性验证方案设计和开发；IP地理编码库的方案设计和实现，基于逆地理编码库成果，构建新的IP地理编码库，实现IP地址到四级行政区划的映射，并设计算法实现随时间推移提升结果准确度；基于编码库，完成对用户常住地挖掘。 <br>
+<strong>项目评价</strong>：为公司所有基于地理位置信息的分析和应用(实时风控、红包应用，广告投放等)提供了基础支持。</p></li>
+<li><p><strong>设备指纹生成项目</strong>：构建设备指纹生成模型，为所有设备生成新的自定义指纹。 <br>
+<strong>项目评价</strong>：为风控部门Anti-Spammer提供数据支持；大幅度降低公司内部设备相关指标的统计误差率，对用户增长分析提供重要支撑。</p></li>
+<li><p><strong>用户和设备LTV预测项目</strong>：构建用户和设备两个维度在不同投放渠道的LTV预测模型并开发实现。 <br>
+<strong>项目评价</strong>：模型具有较好的预测能力，预测结果已成为提供给管理层的例行化指标。</p></li>
+<li><p><strong>平台开发项目</strong>：搭建并维护公司级别的统一UDF开发平台，完成一些常用UDF的开发；搭建和管理公司的数据挖掘平台，如zeppelin和spark生产调度平台。 <br>
+<strong>项目评价</strong>：UDF项目已成为公司数据开发的基础设施。zeppelin和spark平台成为公司通用的高级数据分析平台，有效地提升数据挖掘的生产力。</p></li>
+<li><p><strong>外卖用户分析项目</strong>：包括外卖新客转化分析项目和外卖用户供给分析项目。外卖新客转化分析分别构建用户周边商户与新客转化率的定量模型和用户周边商户分布的定量模型，并将两个模型用新颖的可视化方式表示出来。外卖用户供给分析从不同维度分析低供给用户的分布状态，这些维度包含：低供给用户整体维度，物理城市维度，来源渠道维度，蜂窝维度。 <br>
+<strong>项目评价</strong>：为运营方决策提供了重要的支撑，获公司好评。</p></li>
+<li><p><strong>商户敏感度挖掘</strong>：设计“商户-用户关系的tf-idf模型”计算商户敏感度，设计AB测试方案对商户敏感度进行测试，实验结果分析。 <br>
+<strong>项目评价</strong>：实验证明该指标效果较好，在公司多个业务方得到应用。</p></li>
+<li><p><strong>外卖菜品挖掘</strong>：设计清洗规则，完成外部网站抓取文本数据清洗和外卖全量菜品清洗；设计算法实现菜品名称在语义上的归一化；外卖菜品套餐识别和用餐人数识别。 <br>
+<strong>项目评价</strong>：菜品挖掘结果直接应用于外卖应用首页活动运营。</p></li>
+<li><p><strong>外卖菜品标签挖掘</strong>：参与外卖菜品标签体系构建；使用多种方式从菜品名称文本中挖掘标签；融合多个业务方生产标签，标签自动生成和冲突处理。 <br>
+<strong>项目评价</strong>：文本挖掘和知识图谱基础建设，挖掘结果应用广泛。</p></li>
+<li><p><strong>外卖用户偏好画像</strong>：对外卖用户的商家多级品类偏好进行画像，用于支撑“千人前面”的个性化推荐场景。</p></li>
+<li><p><strong>多源异构网络数据综合分析平台</strong>： 网络爬虫，数据清洗、同构，热点分析，空间聚类，Python/Djano/PostgreSQL/Echart <br>
+<strong>简介</strong>：从网络多个数据源（包括政务公开数据、点评类网站、微博等站点）获取半结构化数据，并将不同来源和结构的数据清洗、格式化，对包含的地理相关信息进行地址解析和空间坐标纠偏。利用多类数据进行统计分析、空间结构聚类，热点分析和行为模式分析。发现北京丰台地区的空间聚集核、热点区域和公众行为模式。 <br>
+<strong>负责</strong>：系统总体设计，网络爬虫实现，数据预处理，文本地理信息的地址解析和空间坐标纠偏，空间数据挖掘和分析，分析结果可视化。 <br>
+<strong>项目评价</strong>：得到北京市丰台区规划委领导高度评价，认为数据分析平台是规划实施评估项目的亮点。<a href="http://ronaldhan.github.io/DataVis/" target="_blank">项目地址</a></p></li>
+<li><p><strong>其他项目</strong></p>
+<ul>
+<li>北京市交通委停车管理系统（业务审批系统，Java/Spring），在项目中负责数据上传、解析、验证和业务流转等。通过参与此系统开发，掌握利用Spring整合开发业务系统的流程和RESTfull系统开发技能。<a href="https://github.com/ronaldhan/SpringRESTfulServiceDemo">项目地址</a></li>
+<li>煤层气集输管理系统（多业务管理系统，国家重大科技专项，C#），在项目中负责应急决策调度模块开发。通过参与此类管理系统开发，了解多模块系统架构设计，对道路网络数据处理、路径规划算法及其优化有深入研究和实践。</li>
+</ul>
+</li>
+<li>
+<p><strong>自主学习</strong></p>
+<ul>
+<li><strong>scikit-learn项目</strong>，在项目中学习多种算法，如高斯混合模型(GMM)/k均值算法/线性回归/主成分分析算法/支持向量机/随机森林的应用，以及进行模型验证的相关知识。<a href="http://ronaldhan.github.io/sklearn/">项目地址</a></li>
+<li><strong>Edx公开课项目BerkeleyX</strong>：利用Spark进行数据挖掘和机器学习，工具：Spark/Python/Scala。加州大学伯克利分校大数据分析培训项目，利用Spark完成一系列大数据分析任务。包括：Apark CLF网站<a href="http://ronaldhan.github.io/SparkLearn/pages/Analysis%20the%20Web%20Server%20logs%20with%20Apache%20Spark.html"><em>日志分析</em></a>，基于Google和Amazon商品描述数据的<a href="http://ronaldhan.github.io/SparkLearn/pages/Text%20Analysis%20and%20Entity%20Resolution%20with%20Apache%20Spark.html"><em>文本解析和实体解析</em></a>，基于协同分析进行电影<a href="http://ronaldhan.github.io/SparkLearn/pages/Collaborative%20Filtering%20recommendation%20with%20Apache%20Spark.html"><em>推荐系统</em></a>，<a href="http://ronaldhan.github.io/SparkLearn/pages/Linear%20Regression%20with%20Apache%20Spark.html"><em>线性回归预测</em></a>，Criteo广告数据<a href="http://ronaldhan.github.io/SparkLearn/pages/CTR%20Prediction%20with%20Apache%20Spark.html"><em>点击率预测</em></a>和降维算法<em>PCA</em>实现。<a href="http://ronaldhan.github.io/SparkLearn/">项目地址</a></li>
+</ul>
+</li>
+</ul>
 
 </body></html>
